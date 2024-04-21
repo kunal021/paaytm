@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const PORT = 3500;
-const path = require("path");
+// const path = require("path");
 const rootRouter = require("./routes/root.route");
 
 const app = express();
@@ -12,11 +12,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const __dirname = path.resolve();
-app.use(express.static(__dirname, "/frontend/dist"));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
-});
+// const __dirname = path.resolve();
+// app.use(express.static(__dirname, "/frontend/dist"));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+// });
 
 mongoose
   .connect(process.env.DB_URI, {})
